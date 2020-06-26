@@ -26,3 +26,5 @@ Answers in Back-End Repo.
 - Build on the User. Allow a user to login and logout. Allow them to see their own ** seconds ** worked.
 - Instead of clocking in/out with a generic username, could use a more secure token or password?
 - Styling. Do more with styling. Do a LOT more with the styling.
+
+- Add functionality for editing a clock event/work log event. Find a good datetime picker and set it up. (Backend exists for this functionality)
