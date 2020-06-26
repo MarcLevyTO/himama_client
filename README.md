@@ -1,68 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# User Clock-In-Clock-Out Challenge
 
-## Available Scripts
+## Install
 
-In the project directory, you can run:
+- Install NodeJS and MongoDB
+- npm i
+- npm run dev
 
-### `yarn start`
+## How did I approach this challenge?
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- In approaching this, I took a look at the required specifications (allow a user to clock-in/clock-out, store the events), but I built upon it for an administrator to see the events and see how long a person worked for.
+- So in the front-end, I designed the following views (ClockIn/Out page, User Sign Up page, Admin's Users page, Admin's User page, and the Event Logs page) to determine what endpoints were needed for each view.
+- When a user clock's in, it creates a clocked in event. When a user clock's out, it creates 2 entries in the DB. The clock out event. But it also creates a WORK LOG event that specifies when a user clocked in and clocked out, and also the time worked between the 2 events.
+- The WORK LOG event is used to help calculate the total amount worked, which in turn would assist in helping calculate pay for a given time period.
+- The WORK LOG is also the mechanism I used for the functionality of being able to edit clock events. For example, a person forgets to clock out, or clock in, the time_worked field would fall between weird boundaries and would be flagged for review.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- NOTE: Everything is put in seconds worked because we aren't going to wait hours to test, so we wait seconds before clocking out after clocking in.
 
-### `yarn test`
+## What schema did I choose and why?
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Answers in Back-End Repo.
 
-### `yarn build`
+## If given another day, or another month, how would I build on this?
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Please see the Future Considers section below.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Future Considerations
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Add Testing. Maybe use Mock, Jest, some other testing frame work?
+- Build on the User. Allow a user to login and logout. Allow them to see their own ** seconds ** worked.
+- Instead of clocking in/out with a generic username, could use a more secure token or password?
+- Styling. Do more with styling. Do a LOT more with the styling.
