@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 import { userService } from '../_services/user.service';
 
@@ -50,6 +49,8 @@ function HomePage() {
       { submitted &&
         <h1>{ statusMessage }</h1>
       }
+
+      <a href="/signup">Sign Up</a>
     </div>
   );
 }

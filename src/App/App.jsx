@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Router, Route, Switch, Redirect, Link } from 'react-router-dom';
+import React from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
 
 import { history } from '../_helpers';
 
@@ -7,7 +7,7 @@ import { HomePage } from '../HomePage';
 import { SignUp } from '../SignUp';
 import { Users } from '../Users';
 import { User } from '../User';
-import { WorkLogs } from '../WorkLogs';
+import { EventLogs } from '../EventLogs';
 
 function App() {
   
@@ -21,11 +21,10 @@ function App() {
         <Router history={history}>
           <Switch>
             <Route path="/signup" component={SignUp} />
+            <Route path="/admin/users/:id" component={User} />
             <Route path="/admin/users" component={Users} />
-            <Route path="/admin/user" component={User} />
-            <Route path="/admin/worklogs" component={WorkLogs} />
+            <Route path="/admin/event-logs" component={EventLogs} />
             <Route path="/" component={HomePage} />
-            <Redirect from="*" to="/" />
           </Switch>
         </Router>
       </div>

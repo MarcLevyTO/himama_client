@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 import { userService } from '../_services/user.service';
 
@@ -49,6 +48,7 @@ function SignUp() {
       { submitted &&
         <h1>{ statusMessage }</h1>
       }
+      <a href="/">Time Clock</a>
     </div>
   );
 }
