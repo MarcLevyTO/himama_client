@@ -1,6 +1,9 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+
 import { history } from '../_helpers';
 
 import { HomePage } from '../HomePage';
@@ -10,7 +13,6 @@ import { User } from '../User';
 import { EventLogs } from '../EventLogs';
 
 function App() {
-  
   
   return (
     <div className="container">
@@ -28,6 +30,12 @@ function App() {
           </Switch>
         </Router>
       </div>
+      <Navbar fixed="bottom">
+        <Nav className="mr-auto">
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/admin/users">Admin</Nav.Link>
+        </Nav>
+      </Navbar>
     </div>
   );
 }
