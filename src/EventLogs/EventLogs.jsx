@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import Table from 'react-bootstrap/Table';
+
 import { adminService } from '../_services/admin.service';
 
 function EventLogs() {
@@ -13,17 +16,19 @@ function EventLogs() {
 
   return (
     <div className="col-lg-8 offset-lg-2">
-      <h1>EventLogs!</h1>
-      <a href="/admin/users">Back to Users</a>
-      <table>
+      <Breadcrumb>
+        <Breadcrumb.Item href="/admin/users">Users</Breadcrumb.Item>
+        <Breadcrumb.Item active>Event Logs</Breadcrumb.Item>
+      </Breadcrumb>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>ID</th>
             <th>User ID</th>
-            <th>EVENT TYPE</th>
-            <th>DATA</th>
-            <th>CREATED AT</th>
-            <th>UPDATED AT</th>
+            <th>Event Type</th>
+            <th>Data</th>
+            <th>Created At</th>
+            <th>Updated At</th>
           </tr>
         </thead>
         <tbody>
@@ -38,7 +43,7 @@ function EventLogs() {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 }

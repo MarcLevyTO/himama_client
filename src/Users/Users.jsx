@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button'
+
 import { adminService } from '../_services/admin.service';
 
 function Users() {
@@ -17,27 +21,28 @@ function Users() {
 
   return (
     <div className="col-lg-8 offset-lg-2">
-      <h1>Users!</h1>
-      <table>
+      <Breadcrumb>
+        <Breadcrumb.Item active>Users</Breadcrumb.Item>
+        <Breadcrumb.Item href="/admin/event-logs">Event Logs</Breadcrumb.Item>
+      </Breadcrumb>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>User Name</th>
-            <th>Status</th>
-            <th>Actions</th>
+            {/* <th>Status</th> */}
+            {/* <th>Actions</th> */}
           </tr>
         </thead>
         <tbody>
           { users && users.map((user, index) => (
             <tr key={user.id}>
               <td><a href={"/admin/users/" + user.id}>{user.username}</a></td>
-              <td>{user.status}</td>
-              <td><button onClick={() => deleteUser(user.id) }>ARCHIVE</button></td>
+              {/* <td>{user.status}</td> */}
+              {/* <td><Button variant="outline-danger" onClick={() => deleteUser(user.id) }>Archive</Button></td> */}
             </tr>
           ))}
         </tbody>
-      </table>
-
-      <a href="/admin/event-logs">Event Logs</a>
+      </Table>
     </div>
   );
 }

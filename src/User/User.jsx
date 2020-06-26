@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import Table from 'react-bootstrap/Table';
+
 import { adminService } from '../_services/admin.service';
 
 function User() {
@@ -23,15 +26,18 @@ function User() {
 
   return (
     <div className="col-lg-8 offset-lg-2">
-      <h1>{user.username}</h1>
+      <Breadcrumb>
+        <Breadcrumb.Item href="/admin/users">Users</Breadcrumb.Item>
+        <Breadcrumb.Item active>{user.username}</Breadcrumb.Item>
+      </Breadcrumb>
       <h4>Work Logs</h4>
-      <table>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>ID</th>
-            <th>START TIME</th>
-            <th>END TIME</th>
-            <th>SECONDS WORKED</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Seconds Worked</th>
           </tr>
         </thead>
         <tbody>
@@ -44,16 +50,16 @@ function User() {
           </tr>
         ))}
         </tbody>
-      </table>
+      </Table>
       <h4>Events</h4>
-      <table>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>ID</th>
-            <th>EVENT TYPE</th>
-            <th>DATA</th>
-            <th>CREATED AT</th>
-            <th>UPDATED AT</th>
+            <th>Event Type</th>
+            <th>Data</th>
+            <th>Created At</th>
+            <th>Updated At</th>
           </tr>
         </thead>
         <tbody>
@@ -67,9 +73,7 @@ function User() {
             </tr>
           ))}
         </tbody>
-      </table>
-
-      <a href="/admin/users">Back to Users</a>
+      </Table>
     </div>
   );
 }
