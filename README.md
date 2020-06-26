@@ -22,10 +22,6 @@ Answers in Back-End Repo.
 
 ## If given another day, or another month, how would I build on this?
 
-- Please see the Future Considers section below.
-
-## Future Considerations
-
 - Add Testing. Maybe use Mock, Jest, some other testing frame work?
 - Build on the User. Allow a user to login and logout. Allow them to see their own ** seconds ** worked.
 - Instead of clocking in/out with a generic username, could use a more secure token or password?
